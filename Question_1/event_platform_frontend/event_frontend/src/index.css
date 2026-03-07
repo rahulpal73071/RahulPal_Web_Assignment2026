@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-slate-300 font-body;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(251, 191, 36, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(30, 37, 53, 0.8) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-400 text-ink-950 font-body font-semibold px-6 py-3 rounded-sm
+           transition-all duration-200 tracking-wide text-sm uppercase
+           hover:shadow-[0_0_24px_rgba(251,191,36,0.35)] active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply border border-ink-600 hover:border-amber-500/50 text-slate-300 hover:text-amber-400
+           font-body px-6 py-3 rounded-sm transition-all duration-200 text-sm tracking-wide uppercase;
+  }
+
+  .input-field {
+    @apply w-full bg-ink-800 border border-ink-600 focus:border-amber-500/60
+           text-slate-200 placeholder-slate-600 px-4 py-3 rounded-sm
+           outline-none transition-all duration-200 font-body text-sm
+           focus:shadow-[0_0_0_3px_rgba(251,191,36,0.1)];
+  }
+
+  .card {
+    @apply bg-ink-900 border border-ink-700 rounded-sm overflow-hidden
+           transition-all duration-300 hover:border-amber-500/30
+           hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+
+  .label {
+    @apply block text-xs font-body font-medium text-slate-400 uppercase tracking-widest mb-2;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1.5 bg-ink-800 border border-ink-600
+           text-slate-400 text-xs font-mono px-3 py-1 rounded-sm;
+  }
+}
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #161b26 25%, #1e2535 50%, #161b26 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0c10; }
+::-webkit-scrollbar-thumb { background: #2a3347; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+
+/* Page transitions */
+.page-enter {
+  animation: fadeUp 0.45s ease forwards;
+}
+
+/* Decorative line */
+.rule {
+  @apply border-t border-ink-700;
+}
