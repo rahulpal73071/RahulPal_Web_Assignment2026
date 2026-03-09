@@ -1,3 +1,5 @@
+## Question 3 -> Try chatbot (https://t.me/ecell_helper_bot)
+
 # EventSphere — Event Registration Platform - Question 1
 
 A full-stack Event Registration Platform built with **Django REST Framework**, **React**, and **PostgreSQL**, fully containerised with **Docker Compose** for one-command setup.
