@@ -1,0 +1,46 @@
+services:
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: eventdb
+      POSTGRES_USER: eventuser
+      POSTGRES_PASSWORD: eventpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./event_platform_backend/event_platform
+    container_name: django_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./event_platform_backend/event_platform:/app
+    depends_on:
+      - db
+    environment:
+      DB_NAME: eventdb
+      DB_USER: eventuser
+      DB_PASSWORD: eventpass
+      DB_HOST: db
+      DB_PORT: 5432
+
+  frontend:
+    build:
+      context: ./event_platform_frontend/event_frontend
+    container_name: react_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./event_platform_frontend/event_frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

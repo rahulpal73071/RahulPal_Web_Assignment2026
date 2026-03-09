@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'event_platform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='event_platform_db'),
-        'USER': config('DB_USER', default='event_user'),
-        'PASSWORD': config('DB_PASSWORD', default='rahulpal'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
+        'NAME': os.getenv("DB_NAME", "eventdb"),
+        'USER': os.getenv("DB_USER", "eventuser"),
+        'PASSWORD': os.getenv("DB_PASSWORD", "eventpass"),
+        'HOST': os.getenv("DB_HOST", "db"),
+        'PORT': os.getenv("DB_PORT", "5432"),
     }
 }
 
