@@ -4,51 +4,25 @@ const require = createRequire(import.meta.url);
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['"DM Sans"', 'sans-serif'],
-        mono: ['"DM Mono"', 'monospace'],
+        sans: ["'DM Sans'", "system-ui", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
-        ink: {
-          950: '#0a0c10',
-          900: '#0f1117',
-          800: '#161b26',
-          700: '#1e2535',
-          600: '#2a3347',
-        },
-        amber: {
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-        },
         slate: {
-          400: '#94a3b8',
-          300: '#cbd5e1',
-          200: '#e2e8f0',
+          950: "#0a0d14",
         },
       },
       animation: {
-        'fade-up': 'fadeUp 0.5s ease forwards',
-        'fade-in': 'fadeIn 0.4s ease forwards',
-        'shimmer': 'shimmer 1.5s infinite',
+        "fade-in": "fadeIn 0.3s ease-out",
+        "slide-up": "slideUp 0.3s ease-out",
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        },
+        fadeIn: { from: { opacity: 0 }, to: { opacity: 1 } },
+        slideUp: { from: { opacity: 0, transform: "translateY(8px)" }, to: { opacity: 1, transform: "translateY(0)" } },
       },
     },
   },

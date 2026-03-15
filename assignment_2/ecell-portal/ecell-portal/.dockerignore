@@ -1,0 +1,30 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+.pytest_cache/
+
+# Local Database / Media
+db.sqlite3
+media/
+staticfiles/
+
+# Node / Frontend
+node_modules/
+npm-debug.log
+dist/
+build/
+
+# Docker/OS
+.dockerignore
+Dockerfile
+docker-compose.yml
+.DS_Store
